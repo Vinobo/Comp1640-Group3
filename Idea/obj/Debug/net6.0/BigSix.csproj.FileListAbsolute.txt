@@ -1,0 +1,9 @@
+C:\Users\acer\Downloads\WebResitDone\Idea\Idea\obj\Debug\net6.0\BigSix.csproj.AssemblyReference.cache
+C:\Users\acer\Downloads\WebResitDone\Idea\Idea\obj\Debug\net6.0\BigSix.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acer\Downloads\WebResitDone\Idea\Idea\obj\Debug\net6.0\BigSix.AssemblyInfoInputs.cache
+C:\Users\acer\Downloads\WebResitDone\Idea\Idea\obj\Debug\net6.0\BigSix.AssemblyInfo.cs
+C:\Users\acer\Downloads\WebResitDone\Idea\Idea\obj\Debug\net6.0\BigSix.csproj.CoreCompileInputs.cache
+C:\Users\acer\Downloads\WebResitDone\Idea\Idea\obj\Debug\net6.0\BigSix.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\acer\Downloads\WebResitDone\Idea\Idea\obj\Debug\net6.0\BigSix.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\acer\Downloads\WebResitDone\Idea\Idea\obj\Debug\net6.0\BigSix.RazorAssemblyInfo.cache
+C:\Users\acer\Downloads\WebResitDone\Idea\Idea\obj\Debug\net6.0\BigSix.RazorAssemblyInfo.cs

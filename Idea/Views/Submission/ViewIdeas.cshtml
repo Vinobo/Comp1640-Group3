@@ -1,0 +1,154 @@
+﻿@model Idea.Models.Submission
+
+@{
+    ViewData["Title"] = "Details";
+    var Ideas = (List<NIdea>)ViewData["Ideas"];
+}
+<!-- Navbar -->
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
+    <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="breadcrumb-item text-sm text-white active" aria-current="page"><a asp-action="Index">Table Submission</a></li>
+            </ol>
+            <h6 class="font-weight-bolder text-white mb-0">Views Idea</h6>
+        </nav>
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            <ul class="navbar-nav  justify-content-end">
+                <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                    <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+                        <div class="sidenav-toggler-inner">
+                            <i class="sidenav-toggler-line bg-white"></i>
+                            <i class="sidenav-toggler-line bg-white"></i>
+                            <i class="sidenav-toggler-line bg-white"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End Navbar -->
+<div class="container-fluid py-4">
+    <div class="row" style="justify-content:center;">
+        <div class="col-lg-8" >
+            <div class="row">
+                <div class="col-md-12 mb-lg-0 mb-4">
+                    <div class="card mt-4">
+                        <div class="card-header pb-0 p-3">
+                            <div class="row">
+                                <div class="col-6 d-flex ">
+                                    <h6 class="mb-0">@Html.DisplayNameFor(model => model.Name)</h6>
+                                </div>
+                                <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                    <h6 class="mb-0">@Html.DisplayFor(model => model.Name)</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header pb-0 p-3">
+                            <div class="row">
+                                <div class="col-6 d-flex" style="flex-direction:column;">
+                                    <h6 class="mb-0">@Html.DisplayNameFor(model => model.Deadline_1)</h6>
+                                    <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                        <h6 class="mb-0">@Html.DisplayFor(model => model.Deadline_1)</h6>
+                                    </div>
+                                </div>
+                                <div class="col-6 d-flex " style="flex-direction:column;">
+                                    <h6 class="mb-0">@Html.DisplayNameFor(model => model.Deadline_2)</h6>
+                                    <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                        <h6 class="mb-0">@Html.DisplayFor(model => model.Deadline_2)</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body px-0 pt-0 pb-2">
+                            <div class="table-responsive p-0">
+                                @if ((DateTime.Now - Model.Deadline_1).TotalMilliseconds <= 0)
+                                {
+                                    <div>
+                                        <a asp-action="AddIdea" asp-route-submissionid="@Model.Id" class="btn btn-success">Add Idea</a>
+                                    </div>
+                                }
+                                <table class="table align-items-center mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Brief</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Views</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Like</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Dislike</th>
+                                            <th class="text-secondary opacity-7"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var idea in Ideas)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">@idea.Title</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">@idea.Brief</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">@idea.View</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">@idea.Reactions.Where(r => r.Type == 1).Count()</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">@idea.Reactions.Where(r => r.Type == 2).Count()</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <div class="btn btn-link text-info text-gradient px-3 mb-0" >
+                                                        <div class="fas fa-eye text-info me-2">
+                                                            <a asp-action="IdeaDetails" asp-route-id="@idea.Id">Views</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn btn-link text-success text-gradient px-3 mb-0" >
+                                                        <div class="fas fa-heart text-success me-2">
+                                                            <a asp-action="Like" asp-route-ideaid="@idea.Id">Like</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn btn-link text-danger text-gradient px-3 mb-0" >
+                                                        <div class="fa fa-heart-broken text-danger me-2">
+                                                            <a asp-action="Dislike" asp-route-ideaid="@idea.Id">Dislike</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <div class="form-group">
+                                    <a class="btn btn-danger btn-sm ms-auto  " asp-action="Index">Back to List</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
