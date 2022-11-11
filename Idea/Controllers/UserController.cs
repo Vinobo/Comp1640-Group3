@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Idea.Areas.Admin
 {
-    [Authorize(Roles = "Admin,Manager")]
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         private readonly ApplicationDbContext _context;
